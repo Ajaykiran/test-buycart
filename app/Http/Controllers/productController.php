@@ -35,4 +35,11 @@ class productController extends Controller
         $data->delete();
         return redirect('product.product');
      }
+
+     function userbooking(){
+        $data2=product::all();
+        {
+            return view ('index', ['product'=>$data2]);
+        }
+     }
 }
