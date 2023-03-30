@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\productController;
 use App\Http\Controllers\editController;
 
 
@@ -47,21 +46,12 @@ class productController extends Controller
      }
      
 
-
-
-
-
-
      function edit ($id) {
         $product = product::find($id);
         return view('edit.edit',compact('product'));
  
 }
-    function update (Request $request,$id){
-        $dataa = product::find($id);
-        return view('product.product');
 
-    }
     function updates (Request $request, $id){
 
         $product = Product::find($id);
