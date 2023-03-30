@@ -1,4 +1,4 @@
-
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,27 +7,18 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>	
-  <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style>
 	body{
 		margin:0;
 		padding:0;
 	}
-        table{
-			
-            margin-top:20%;
-			
-			border-collapse: collapse;
-			border-collapse: collapse;
-        }
-		
-        thead tr {
-   
-        }
+       
+	table{
+           margin-top: 10%;
+		}
 
-		th, td {
-            border: 1px solid black;
-			
-               }
+		
 		.sidebar {
 
 			height: 640px;
@@ -94,13 +85,14 @@
     <td>{{$item['description']}}</td>
     <td>{{$item['category']}}</td>
     <td>{{$item['price']}}</td>
-    <td><a href="{{'delete/'.$item['id']}}">delete</a></td>
-
+    <td><a href="{{'delete/'.$item['id']}}"><button style='font: size: 20px;'>delete<i class="fa fa-trash"></i></a></button> 
+	<a href="{{'edit/'.$item['id']}}"><button style='font: size: 20px;'>edit<i class= 'fa fa-edit'></i></a></button>
+</td>
 </tr>
 @endforeach
 	</tbody>
 </table>
-	</div >
+	</div>
 	</div>
 </body>
 </html>
