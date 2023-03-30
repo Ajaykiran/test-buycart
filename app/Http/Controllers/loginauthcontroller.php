@@ -13,16 +13,37 @@ class loginauthcontroller extends Controller
         return view("auth.Register");
     }
     public function registerUser(Request $request){
-       $user=new user();
-       $user->name=$request->name;
-       $user->email=$request->email;
-       $user->password=$request->password;
-       $res=$user->save();
-       if($res){
-        return back() ->with('success','you are sucessfully registered');
-       }else{
-        return back() ->with('fail','try again');
-       }
+       // validate form data
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|unique:users|max:255',
+        'password' => 'required|string|min:8',
+    ]);
+
+    // create new user
+    $user = new User();
+    $user->name = $validatedData['name'];
+    $user->email = $validatedData['email'];
+    $user->password = $validatedData['password'];
+    $user->save();
+
+   // redirect to success page
+   return redirect('/success');
+    }
+
+    public function loginuser(Request $request){
+        $validatedData = $request->validate([
+            'email' => 'required|string|email|unique:users|max:255',
+            'password' => 'required|string|min:8',
+        ]);
+        $user =USer::where('email','=',$request->email)->first();
+        if($user){
+
+        }else{
+            return back() ->with('fail','This email is not registered.');
+        }
+        
+    
 
     }
 }

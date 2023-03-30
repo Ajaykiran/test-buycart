@@ -13,14 +13,23 @@
 
 <div class="container">
   <h2>Login Form</h2>
-  <form action="/action_page.php">
+  <form action="{{route('login-user')}}" method="POST">
+  @if(Session::has('success'))
+    <div class="alert alert-success">{{Session::get(success)}}</div>
+    @endif
+    @if(Session::has('fail'))
+    <div class="alert alert-success">{{Session::get(fail)}}</div>
+    @endif
+    @csrf
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value=>
+      <span class="text-danger">@error('name'){{$message}} @enderror</span>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+      <span class="text-danger">@error('name'){{$message}} @enderror</span>
     </div>
     <div class="form-group form-check">
       <label class="form-check-label">
