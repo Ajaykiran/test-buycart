@@ -6,7 +6,10 @@ use App\Http\Controllers\ordercontroller;
 use App\Http\Controllers\productController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+ vijay
 use Illuminate\Support\Facades\Route;
+
+main
 
 
 
@@ -30,9 +33,34 @@ Route::post('/register-user',[loginauthcontroller::class,'registerUser'])->name(
 Route::post('/login-user',[loginauthcontroller::class,'loginUser'])->name('login-user');
 
 
+vijay
 Route::get('/success', function () {
     return view('auth.registration-success');
 });
+
+Route::get('/login-user', function () {
+    return view('login');
+})->name('login.form');
+
+Route::post('/login', function () {
+    $credentials = request()->only('username', 'password');
+
+    if (Auth::attempt($credentials)) {
+        request()->session()->put('username', $credentials['username']);
+
+        return redirect()->route('home');
+    }
+
+    return back()->withErrors([
+        'message' => 'Invalid credentials'
+    ]);
+})->name('login');
+
+Route::get('/success', function () {
+    return view('auth.registration-success');
+});
+
+main
 
 
 
@@ -59,7 +87,27 @@ Route::Post('/product', [productController::class, 'pro_store'])->name('pro');
 Route::get('product.product', [productController::class, 'pro']);
 
 Route::get('delete/{id}', [productController::class, 'delete']);
+
 Route::get('edit/{id}', [productController::class, 'edit']);
 Route::put('update/{id}',[productController::class, 'updates'])->name('update');
 Route::get('orderform/{id}', [ordercontroller::class, 'orderform']);
 Route::post('/order', [ordercontroller::class, 'store'])->name('order');
+
+
+
+
+
+Route::get('form', [FormController::class, 'form']);
+
+Route::get('/custform', [OrderController::class, 'create']);
+Route::Post('/orders', [OrderController::class, 'store'])->name('ord');
+
+Route::get('product.proform', [productController::class, 'pro_create']);
+Route::Post('/product', [productController::class, 'pro_store'])->name('pro');
+
+Route::get('product.product', [productController::class, 'pro']);
+Route::get('list', [OrderController::class, 'list']);
+Route::get('delete/{id}', [productController::class, 'delete']);
+Route::get('edit/{id}', [productController::class, 'edit']);
+Route::put('update/{id}',[productController::class, 'updates'])->name('update');
+
