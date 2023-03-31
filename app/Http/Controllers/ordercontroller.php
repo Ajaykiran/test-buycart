@@ -24,7 +24,7 @@ class ordercontroller extends Controller
     $order->product_price = $request->product_price;
     $order->save();
     // Redirect to success page
-    return view('order-success')->with('order', $order);
+    return redirect('use');
 }
 
 }
