@@ -353,6 +353,7 @@ span.psw {
                         <h3>Price : {{$item['price']}}</h3>
                         <h4>Details: {{$item['description']}}</h4>
                         <h4>category: {{$item['category']}}</h4>
+                        <a href="{{'orderform/'.$item['id']}}"><button style='font-size: 20px;'>Buy Now<i class= 'fa fa-edit'></i></a></button>
                         <button onclick="Myfunction()" class="btn btn-primary product" name="product"><i class="fa fa-shopping-cart"> Add to Cart</i></button>
                     </div>
                 </div>
