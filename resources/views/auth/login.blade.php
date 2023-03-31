@@ -23,12 +23,21 @@
     @csrf
     <div class="form-group">
       <label for="email">Email:</label>
+ vijay
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" >
+      <span class="text-danger">@error('name'){{$message}} @enderror</span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value=>
       <span class="text-danger">@error('name'){{$message}} @enderror</span>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+ main
       <span class="text-danger">@error('name'){{$message}} @enderror</span>
     </div>
     <div class="form-group form-check">
