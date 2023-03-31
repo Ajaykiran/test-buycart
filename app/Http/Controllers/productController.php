@@ -9,6 +9,11 @@ use App\Http\Controllers\editController;
 
 class productController extends Controller
 {
+
+   
+
+
+
     public function pro_create()
     {
         return view('product.proform');
