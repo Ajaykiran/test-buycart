@@ -54,12 +54,14 @@ Route::get('/', [productController::class, 'userbooking']);
 
 
 Route::get('product.proform', [productController::class, 'pro_create']);
-Route::Post('/product', [productController::class, 'pro_store'])->name('pro');
 
+Route::Post('/product', [productController::class, 'pro_store'])->name('pro');
 Route::get('product.product', [productController::class, 'pro']);
+
 
 Route::get('delete/{id}', [productController::class, 'delete']);
 Route::get('edit/{id}', [productController::class, 'edit']);
 Route::put('update/{id}',[productController::class, 'updates'])->name('update');
 Route::get('orderform/{id}', [ordercontroller::class, 'orderform']);
 Route::post('/order', [ordercontroller::class, 'store'])->name('order');
+Route::get('orders.order', [ordercontroller::class, 'order']);

@@ -27,6 +27,11 @@ class ordercontroller extends Controller
     return redirect('use');
 }
 
+function order() {
+    $data=order::all();
+    return view('orders.order', ['order'=>$data]);
+ }
+
 }
 
 

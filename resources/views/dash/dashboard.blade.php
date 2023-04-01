@@ -42,7 +42,7 @@
 				<a href="#" class="nav-link active">Dashboard</a>
 			</li>
 			<li class="nav-item">
-            <a href="{{ url('/list') }}" class="nav-link">User Orders</a>
+            <a href="{{ url('orders.order') }}" class="nav-link">User Orders</a>
 			</li>
 			<li class="nav-item">
 				<a href="{{ url('/product.product') }}" class="nav-link">Products list</a>

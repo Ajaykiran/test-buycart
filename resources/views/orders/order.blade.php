@@ -70,25 +70,23 @@
 <table class="table  table-striped table-bordered ; ">
 <thead>
 <tr>
-    <th >id</th> 
-    <th >name</th>
-    <th scope="col">description</th>
-    <th scope="col">category</th>
-    <th scope="col">price</th>
-	<th>image</th>
-    <th scope="col">operation</th>
+    <th>id</th> 
+    <th>customer name</th>
+    <th>customer address</th>
+    <th>phone Number</th>
+    <th>product</th>
+    <th >amount</th>
 </tr>
 	</thead>
-@foreach ($product as $item) 
+@foreach ($order as $item) 
 <tr>
     <td>{{$item['id']}}</td>
-    <td>{{$item['name']}}</td>
-    <td>{{$item['description']}}</td>
-    <td>{{$item['category']}}</td>
-    <td>{{$item['price']}}</td>
-	<td><img src="{{ Storage::url('assets/images/'.$item['image']) }}" alt="{{ $item['name'] }}" width="200"  height="150"></td>
-    <td><a href="{{'delete/'.$item['id']}}"><button style='font-size:20px;'>delete<i class="fa fa-trash"></i></a></button> 
-	<a href="{{'edit/'.$item['id']}}"><button style='font-size: 20px;'>edit<i class= 'fa fa-edit'></i></a></button>
+    <td>{{$item['cust_name']}}</td>
+    <td>{{$item['cust_addr']}}</td>
+    <td>{{$item['cust_phone']}}</td>
+    <td>{{$item['product_name']}}</td>
+    <td>{{$item['product_price']}}</td>
+
 </td>
 </tr>
 @endforeach

@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Admin Panel Menu</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<style>
-        table{
-            margin-left: 20%;
-        }
+		form{
+			margin-top: 10%;
+		}
+        
 		.sidebar {
 			position: fixed;
 			top: 0;
@@ -62,7 +62,7 @@
 	</div>
 
 
-<form method="post" action="{{ route('pro') }}">
+<form method="post" action="{{ route('pro') }}"   enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="name">product Name</label>
@@ -80,6 +80,11 @@
         <label for="price">price</label>
         <input type="text" class="form-control" id="price" name="price" required>
     </div>
+	<div class="form-group">
+        <label for="image">image</label>
+        <input type="file" class="form-control" id="image" name="image" required>
+		<img src="{{ asset('public/assets/images/') }}" alt="image">
+    </div>
     <button type="submit" class="btn btn-primary" style="margin-left: 77%;">add product</button>
 </form>
 
@@ -88,4 +93,4 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
-</html>
+</html> 
